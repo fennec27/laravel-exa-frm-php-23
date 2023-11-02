@@ -13,9 +13,11 @@ class Exercise04Test extends TestCase
 
     public function test_total_number_of_articles_is_visible(): void
     {
-        Article::create(['reference' => 'test',
-                         'quantity'  => 0]);
-                              
+        Article::create([
+            'reference' => 'test',
+            'quantity' => 0
+        ]);
+
         $response = $this->get(route('articles.index'));
 
         $response->assertSee('1 article');
@@ -24,9 +26,11 @@ class Exercise04Test extends TestCase
     public function test_total_number_of_articles_is_visible_and_pluralized(): void
     {
         for ($i = 0; $i < 4; $i++)
-            Article::create(['reference' => 'test',
-                            'quantity'  => 0]);
-                              
+            Article::create([
+                'reference' => 'test',
+                'quantity' => 0
+            ]);
+
         $response = $this->get(route('articles.index'));
 
         $response->assertSee('4 articles');
@@ -35,8 +39,10 @@ class Exercise04Test extends TestCase
     public function test_total_stock_is_visible(): void
     {
         for ($i = 0; $i < 4; $i++)
-            Article::create(['reference' => 'test',
-                            'quantity'  => 74]);
+            Article::create([
+                'reference' => 'test',
+                'quantity' => 74
+            ]);
 
         $response = $this->get(route('articles.index'));
 
