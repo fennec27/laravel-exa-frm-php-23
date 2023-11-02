@@ -22,7 +22,8 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('articles.create');
+        $a = new Article();
+        return view('articles.create', ['article' => $a]);
     }
 
     /**
@@ -40,6 +41,7 @@ class ArticleController extends Controller
     public function show(Article $article)
     {
         //
+
     }
 
     /**
@@ -48,6 +50,7 @@ class ArticleController extends Controller
     public function edit(Article $article)
     {
         //
+        return view('articles.edit', ['article' => $article]);
     }
 
     /**
@@ -56,6 +59,8 @@ class ArticleController extends Controller
     public function update(Request $request, Article $article)
     {
         //
+        $article->update($request->except('_token', '_method'));
+        return redirect()->route('articles.index');
     }
 
     /**

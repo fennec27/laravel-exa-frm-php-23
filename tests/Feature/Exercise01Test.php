@@ -20,8 +20,10 @@ class Exercise01Test extends TestCase
 
     public function test_store_with_nota(): void
     {
-        $response = $this->post(route('articles.store', ['reference' => 'test very long',
-                                                         'nota' => 'This is a nota']));
+        $response = $this->post(route('articles.store', [
+            'reference' => 'test very long',
+            'nota' => 'This is a nota'
+        ]));
 
         $response->assertRedirectContains('This is a nota');
     }
@@ -30,7 +32,7 @@ class Exercise01Test extends TestCase
     {
         $a = Article::create([
             'reference' => 'test reference',
-            'nota'      => 'This is a nota'
+            'nota' => 'This is a nota'
         ]);
 
         $response = $this->get(route('articles.index'));

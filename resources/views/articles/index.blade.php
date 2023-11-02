@@ -15,6 +15,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Reference</th>
                 <th scope="col">Stock</th>
+                <th scope="col">Nota</th>
                 <th scope="col"></th>
             </tr>
         </thead>
@@ -24,13 +25,14 @@
                 <th scope="row">{{ $article->id }}</th>
                 <td>{{ $article->reference }}</td>
                 <td>{{ $article->quantity }}</td>
+                <td>{{ $article->nota }}</td>
                 <td class="text-end">
                     <div class="d-inline-block">
                         <form method="POST" action="{{ route('articles.destroy', $article) }}">
                             @method('DELETE')
                             @csrf
                             <a class="btn btn-secondary" href="#TODO" role="button"><i class="bi bi-plus-lg"></i> Stock</a>
-                            <a class="btn btn-secondary" href="#TODO" role="button">Edit</a>
+                            <a class="btn btn-secondary" href="{{ route('articles.edit', $article) }}" role="button">Edit</a>
                             <button class="btn btn-danger" type="submit">Delete</button>
                         </form>
                     </div>
