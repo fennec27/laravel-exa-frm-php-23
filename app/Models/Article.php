@@ -23,6 +23,13 @@ class Article extends Model
         return Article::sum("quantity");
     }
 
+    public static function incrementQuantity($id)
+    {
+        $article = Article::find($id);
+        $article->quantity++;
+        $article->save();
+    }
+
     protected static function boot()
     {
         parent::boot();
