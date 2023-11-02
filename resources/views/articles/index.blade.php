@@ -31,7 +31,7 @@
                         <form method="POST" action="{{ route('articles.destroy', $article) }}">
                             @method('DELETE')
                             @csrf
-                            <a class="btn btn-secondary" href="{{ $article::incrementQuantity($article->id)}}" role="button"><i class="bi bi-plus-lg"></i> Stock</a>
+                            <a class="btn btn-secondary" href="{{ route('articles.stock', $article) }}" role="button"><i class="bi bi-plus-lg"></i> Stock</a>
                             <a class="btn btn-secondary" href="{{ route('articles.edit', $article) }}" role="button">Edit</a>
                             <button class="btn btn-danger" type="submit">Delete</button>
                         </form>
@@ -43,8 +43,16 @@
         <tfoot>
             <tr>
                 <th>Total</th>
-                <th>{{count($articles)}} article(s)</th>
-                <th>{{$article->stockCount()}} article(s) in stock</th>
+                @if (count($articles) === 0)
+                <th>{{count($articles)}} article</th>
+                @else
+                <th>{{count($articles)}} articles</th>
+                @endif
+                @if ($article->stockCount() === 0)
+                <th>{{$article->stockCount()}} article in stock</th>
+                @else
+                <th>{{$article->stockCount()}} articles in stock</th>
+                @endif
                 <th></th>
             </tr>
         </tfoot>

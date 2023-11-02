@@ -25,10 +25,19 @@ class Article extends Model
 
     public static function incrementQuantity($id)
     {
+        // NOn foonctionnel
         $article = Article::find($id);
         $article->quantity++;
         $article->save();
     }
+
+    /*
+    public function increment()
+    {
+        $this->increment('quantity', 1);
+        $this->save();
+    }*/
+
 
     protected static function boot()
     {

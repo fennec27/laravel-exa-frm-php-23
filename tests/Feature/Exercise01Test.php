@@ -25,7 +25,9 @@ class Exercise01Test extends TestCase
             'nota' => 'This is a nota'
         ]));
 
-        $response->assertRedirectContains('This is a nota');
+        //$response->assertRedirectContains('This is a nota');
+        $this->followRedirects($response)->assertSee('This is a nota');
+
     }
 
     public function test_index_show_nota(): void

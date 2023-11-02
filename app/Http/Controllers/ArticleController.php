@@ -65,6 +65,13 @@ class ArticleController extends Controller
         return redirect()->route('articles.index');
     }
 
+    public function stock(Request $request, Article $article)
+    {
+        //
+        $article->increment('quantity', 1);
+    }
+
+
     /**
      * Remove the specified resource from storage.
      */
