@@ -69,6 +69,7 @@ class ArticleController extends Controller
     {
         //
         $article->increment('quantity', 1);
+        return redirect()->route('articles.index');
     }
 
 

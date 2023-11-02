@@ -18,6 +18,6 @@ use App\Http\Controllers\ArticleController;
 
 Route::resource('articles', ArticleController::class);
 
-Route::put('/articles/{$article}', [ArticleController::class, 'stock']);
+Route::put('/articles/stock', [ArticleController::class, 'stock'])->name('articles.stock');
 
 Route::get('/', [ArticleController::class, 'index']);
