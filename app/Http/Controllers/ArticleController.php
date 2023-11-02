@@ -9,12 +9,14 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
+    public $stockCount = 0;
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('articles.index', ['articles' => Article::all()]);
+        $articles = Article::all();
+        return view('articles.index', ['articles' => $articles]);
     }
 
     /**

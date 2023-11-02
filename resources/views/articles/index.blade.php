@@ -43,8 +43,8 @@
         <tfoot>
             <tr>
                 <th>Total</th>
-                <th>? article(s)</th>
-                <th>? article(s) in stock</th>
+                <th>{{count($articles)}} article(s)</th>
+                <th>{{$article->stockCount()}} article(s) in stock</th>
                 <th></th>
             </tr>
         </tfoot>

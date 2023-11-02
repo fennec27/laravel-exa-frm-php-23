@@ -18,6 +18,11 @@ class Article extends Model
     ];
 
 
+    public function stockCount()
+    {
+        return Article::sum("quantity");
+    }
+
     protected static function boot()
     {
         parent::boot();
